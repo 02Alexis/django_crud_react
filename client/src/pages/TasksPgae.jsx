@@ -1,5 +1,11 @@
+import TasksList from "../components/TasksList";
+
 function TasksPgae() {
-  return <div>TasksPgae</div>;
+  return (
+    <div>
+      <TasksList />
+    </div>
+  );
 }
 
 export default TasksPgae;

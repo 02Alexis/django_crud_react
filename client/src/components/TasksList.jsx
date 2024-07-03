@@ -1,16 +1,26 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getAllTasks } from "../api/tasks";
 
 function TasksList() {
+  const [tasks, setTasks] = useState([]);
   useEffect(() => {
-    function loadTask() {
-      const res = getAllTasks();
-      console.log(res);
+    async function loadTask() {
+      const res = await getAllTasks();
+      setTasks(res.data);
     }
     loadTask();
   }, []);
 
-  return <div>TasksList</div>;
+  return (
+    <div>
+      {tasks.map((task) => (
+        <div key={task.id}>
+          <h1>{task.title}</h1>
+          <p>{task.description}</p>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default TasksList;

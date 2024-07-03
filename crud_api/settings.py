@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders', #-------------------- comunicacion con otro back
     'rest_framework', #----------------- crear APIS
-    'task',
+    'coreapi',
+    'task'
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #------------------ cors authorization
 CORS_ALLOWED_ORIGINS = []
+
+#------------------ modulo para que se autodocumente
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
+}
